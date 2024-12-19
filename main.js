@@ -59,15 +59,16 @@ const tickBoxListenerFour = tickBoxFour.addEventListener("click", tickFour, fals
 const tickBoxListenerFive = tickBoxFive.addEventListener("click", tickFive, false)
 const tickBoxListenerSix = tickBoxSix.addEventListener("click", tickSix, false)
 
-const crossBoxListenerOne = crossBoxOne.addEventListener("click", removeFunctOne, false)
-const crossBoxListenerTwo = crossBoxOne.addEventListener("click", removeFunctTwo, false)
-const crossBoxListenerThree = crossBoxOne.addEventListener("click", removeFunctThree, false)
-const crossBoxListenerFour = crossBoxOne.addEventListener("click", removeFunctFour, false)
-const crossBoxListenerFive = crossBoxOne.addEventListener("click", removeFunctFive, false)
-const crossBoxListenerSix = crossBoxOne.addEventListener("click", removeFunctSix, false)
-
-
 const remover = crossBox.addEventListener("click", removeFunct, false)
+const crossBoxListenerOne = crossBoxOne.addEventListener("click", removeFunctOne, false)
+const crossBoxListenerTwo = crossBoxTwo.addEventListener("click", removeFunctTwo, false)
+const crossBoxListenerThree = crossBoxThree.addEventListener("click", removeFunctThree, false)
+const crossBoxListenerFour = crossBoxFour.addEventListener("click", removeFunctFour, false)
+const crossBoxListenerFive = crossBoxFive.addEventListener("click", removeFunctFive, false)
+const crossBoxListenerSix = crossBoxSix.addEventListener("click", removeFunctSix, false)
+
+
+
 
 
 //FUNCTIONS
@@ -77,6 +78,7 @@ function submission(eve) {
     eve.preventDefault();
     textContentCounter += 1
 
+    console.log(textContentCounter)
     const textString = rawInput.value.toString()
     let textThrow = textString.trim()
     textArray.push(textThrow)
@@ -101,7 +103,14 @@ function submission(eve) {
     if (textContentCounter === 5) {
         itemMakerSix()
     }
-    return textThrow //Save to a database or remove this line?????? Is this function too big? Will also need to save array!
+    if (textContentCounter === 6) {
+        textContentCounter -= 1
+        return
+    }
+    else {
+
+        return textThrow
+    }//Save to a database or remove this line?????? Is this function too big? Will also need to save array!
 
 }
 
@@ -217,33 +226,46 @@ function removeFunct(eve) {
 
 function removeFunctOne(eve) {
 
-
-
+    textArray.splice(0, 1)
+    textContentCounter -= 1
     const itemOne = document.getElementById("taskItem1")
     itemOne.style.display = "none"
 }
 function removeFunctTwo(eve) {
 
+    textArray.splice(1, 1)
+    textContentCounter -= 1
     const itemTwo = document.getElementById("taskItem2")
     itemTwo.style.display = "none"
 }
 function removeFunctThree(eve) {
 
+    textArray.splice(2, 1)
+    textContentCounter -= 1
     const itemThree = document.getElementById("taskItem3")
     itemThree.style.display = "none"
 }
 function removeFunctFour(eve) {
 
+    textArray.splice(3, 1)
+
+    textContentCounter -= 1
     const itemFour = document.getElementById("taskItem4")
     itemFour.style.display = "none"
 }
 function removeFunctFive(eve) {
 
+    textArray.splice(4, 1)
+
+    textContentCounter -= 1
     const itemFive = document.getElementById("taskItem5")
     itemFive.style.display = "none"
 }
 function removeFunctSix(eve) {
 
+    textArray.splice(4, 1)
+
+    textContentCounter -= 1
     const itemSix = document.getElementById("taskItem6")
     itemSix.style.display = "none"
 }
