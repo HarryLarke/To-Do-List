@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>To-Do</h1>
+        <form action="submit" id="submit">
+            <label for="taskInput"></label>
+            <input type="text" name="taskInput" id="taskInput" class="task-input">
+            <button class="submit-button" type="submit" id="submitButton">add</button>
+        </form>
+        <div class="task-indicator">
+            <p>Done</p>
+            <p>Remove</p>
+        </div>
+        <section class="task-holder" id="itemHolder">
+
+            <div class="task-item__example" id="taskItem">
+                <div class="box" id="tickBox">
+                    <div class="tick" id="tick">
+                        <div class="line-one__tick"></div>
+                        <div class="line-two__tick"></div>
+                    </div>
+                </div>
+                <p class="text" id="text">Here is task</p>
+                <div class="box" id="crossBox">
+                    <div class="cross" id="cross">
+                        <div class="line-one__cross"></div>
+                        <div class="line-two__cross"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-item" id="taskItem1">
+                <div class="box" id="tickBox1">
+                    <div class="tick" id="tick1">
+                        <div class="line-one__tick"></div>
+                        <div class="line-two__tick"></div>
+                    </div>
+                </div>
+                <p class="text" id="text">text</p>
+                <div class="box" id="crossBox1">
+                    <div class="cross" id="cross">
+                        <div class="line-one__cross"></div>
+                        <div class="line-two__cross"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-item" id="taskItem2">
+                <div class="box" id="tickBox2">
+                    <div class="tick" id="tick2">
+                        <div class="line-one__tick"></div>
+                        <div class="line-two__tick"></div>
+                    </div>
+                </div>
+                <p class="text" id="text">text</p>
+                <div class="box" id="crossBox2">
+                    <div class="cross" id="cross2">
+                        <div class="line-one__cross"></div>
+                        <div class="line-two__cross"></div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</body>
+
+</html>
