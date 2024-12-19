@@ -5,15 +5,15 @@ let form = document.getElementById("submit")
 let rawInput = document.getElementById("taskInput")
 
 let itemHolder = document.getElementById("itemHolder")
-let item = document.getElementById("taskItem", "taskItem1") //Can we add an array??
+let item = document.getElementById("taskItem") //Can we add an array internal getters???
 let textContent = document.getElementById("text")
 
 
-let tickBox = document.getElementById("tickBox", "tickBox1")
-let tickCSS = document.getElementById("tick", "tick1") //Props need rid
+let tickBox = document.getElementById("tickBox")
+let tickCSS = document.getElementById("tick") //Props need rid
 
-let crossBox = document.getElementById("crossBox", "crossBox1")
-let crossCSS = document.getElementById("cross", "cross1")
+let crossBox = document.getElementById("crossBox")
+let crossCSS = document.getElementById("cross")
 
 
 
@@ -48,7 +48,13 @@ function submission(eve) {
     console.log(textArray)
     rawInput.value = ""
 
-    itemMaker()
+    if (textContentCounter === 0) {
+        itemMakerOne()
+    }
+    if (textContentCounter === 1) {
+        itemMakerTwo()
+    }
+
     return textThrow //Save to a database or remove this line?????? Is this function too big? 
 
 }
@@ -71,10 +77,27 @@ function removeFunct(eve) {
     item.style.display = "none"
 }
 
-function itemMaker(text) {
+function itemMakerOne() {
     itemCounter += 1
     const newItem = document.getElementById("taskItem1")
     newItem.style.display = "flex"
+
+    const text = document.getElementById("textOne")
+    let textContent = textArray[textContentCounter]
+    text.textContent = `${textContent}`
+
+    return
+}
+
+function itemMakerTwo() {
+    itemCounter += 1
+    const newItem = document.getElementById("taskItem2")
+    newItem.style.display = "flex"
     console.log(textArray[textContentCounter])
+
+    const text = document.getElementById("textTwo")
+    let textContent = textArray[textContentCounter]
+    text.textContent = `${textContent}`
+
     return
 }
