@@ -4,8 +4,16 @@ console.log("Active")
 let form = document.getElementById("submit")
 let rawInput = document.getElementById("taskInput")
 
-let taskHolder = document.getElementById("itemHolder")
+let itemHolder = document.getElementById("itemHolder")
+let item = document.getElementById("taskItem", "taskItem1") //Can we add an array??
+let textContent = document.getElementById("text")
 
+
+let tickBox = document.getElementById("tickBox", "tickBox1")
+let tickCSS = document.getElementById("tick", "tick1") //Props need rid
+
+let crossBox = document.getElementById("crossBox", "crossBox1")
+let crossCSS = document.getElementById("cross", "cross1")
 
 
 
@@ -22,6 +30,9 @@ const textArray = [] //Save??
 //LISTENERS 
 const submissionListener = form.addEventListener("submit", submission, false)
 
+const tickBoxListener = tickBox.addEventListener("click", tick, false)
+
+const remover = crossBox.addEventListener("click", removeFunct, false)
 
 
 //FUNCTIONS
@@ -39,25 +50,31 @@ function submission(eve) {
 
     itemMaker()
     return textThrow //Save to a database or remove this line?????? Is this function too big? 
+
 }
 
-function itemMaker(textArray) {
-    console.log(textArray)
+function tick(eve) {
+    tickCounter += 1
+    console.log(tickCounter)
+    if (tickCounter % 2 === 0) {
+        tickCSS.style.opacity = "100%"
+        textContent.style.textDecoration = "line-through"
+    }
+    else {
+        tickCSS.style.opacity = "0%"
+        textContent.style.textDecoration = "none"
+    }
+}
 
-    taskHolder.insertAdjacentHTML("afterbegin", `<div class="task-item" id="taskItem1">
-                <div class="box" id="tickBox1">
-                    <div class="tick" id="tick1">
-                        <div class="line-one__tick"></div>
-                        <div class="line-two__tick"></div>
-                    </div>
-                </div> <p class="text" id="text">Hello</p>
-                <div class="box" id="crossBox1">
-                    <div class="cross" id="cross">
-                        <div class="line-one__cross"></div>
-                        <div class="line-two__cross"></div>
-                    </div>
-                </div>
-            </div>`  )
+function removeFunct(eve) {
+    console.log("Cross clicked!")
+    item.style.display = "none"
+}
 
-
+function itemMaker(text) {
+    itemCounter += 1
+    const newItem = document.getElementById("taskItem1")
+    newItem.style.display = "flex"
+    console.log(textArray[textContentCounter])
+    return
 }
