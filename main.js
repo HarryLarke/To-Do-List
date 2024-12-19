@@ -5,15 +5,30 @@ let form = document.getElementById("submit")
 let rawInput = document.getElementById("taskInput")
 
 let itemHolder = document.getElementById("itemHolder")
-let item = document.getElementById("taskItem") //Can we add an array internal getters???
+//Can we add an array internal getters??? Same below
 let textContent = document.getElementById("text")
 
 
 let tickBox = document.getElementById("tickBox")
-let tickCSS = document.getElementById("tick") //Props need rid
+let tickBoxOne = document.getElementById("tickBox1")
+let tickBoxTwo = document.getElementById("tickBox2")
+let tickBoxThree = document.getElementById("tickBox3")
+let tickBoxFour = document.getElementById("tickBox4")
+let tickBoxFive = document.getElementById("tickBox5")
+let tickBoxSix = document.getElementById("tickBox6")
+
+
+let crossCSS = document.getElementById("cross")
 
 let crossBox = document.getElementById("crossBox")
-let crossCSS = document.getElementById("cross")
+let crossBoxOne = document.getElementById("crossBox1")
+let crossBoxTwo = document.getElementById("crossBox2")
+let crossBoxThree = document.getElementById("crossBox3")
+let crossBoxFour = document.getElementById("crossBox4")
+let crossBoxFive = document.getElementById("crossBox5")
+let crossBoxSix = document.getElementById("crossBox6")
+
+
 
 
 
@@ -21,16 +36,36 @@ let crossCSS = document.getElementById("cross")
 let textContentCounter = -1
 let itemCounter = 0
 let tickCounter = 1
+let tickCounter1 = 1
+let tickCounter2 = 1
+let tickCounter3 = 1
+let tickCounter4 = 1
+let tickCounter5 = 1
+let tickCounter6 = 1
 let crossCounter = 1
 
 //OBJECTS 
 const textArray = [] //Save??
 
 
-//LISTENERS 
+//LISTENERS  
 const submissionListener = form.addEventListener("submit", submission, false)
 
 const tickBoxListener = tickBox.addEventListener("click", tick, false)
+const tickBoxListenerOne = tickBoxOne.addEventListener("click", tickOne, false)
+const tickBoxListenerTwo = tickBoxTwo.addEventListener("click", tickTwo, false)
+const tickBoxListenerThree = tickBoxThree.addEventListener("click", tickThree, false)
+const tickBoxListenerFour = tickBoxFour.addEventListener("click", tickFour, false)
+const tickBoxListenerFive = tickBoxFive.addEventListener("click", tickFive, false)
+const tickBoxListenerSix = tickBoxSix.addEventListener("click", tickSix, false)
+
+const crossBoxListenerOne = crossBoxOne.addEventListener("click", removeFunctOne, false)
+const crossBoxListenerTwo = crossBoxOne.addEventListener("click", removeFunctTwo, false)
+const crossBoxListenerThree = crossBoxOne.addEventListener("click", removeFunctThree, false)
+const crossBoxListenerFour = crossBoxOne.addEventListener("click", removeFunctFour, false)
+const crossBoxListenerFive = crossBoxOne.addEventListener("click", removeFunctFive, false)
+const crossBoxListenerSix = crossBoxOne.addEventListener("click", removeFunctSix, false)
+
 
 const remover = crossBox.addEventListener("click", removeFunct, false)
 
@@ -66,13 +101,16 @@ function submission(eve) {
     if (textContentCounter === 5) {
         itemMakerSix()
     }
-    return textThrow //Save to a database or remove this line?????? Is this function too big? 
+    return textThrow //Save to a database or remove this line?????? Is this function too big? Will also need to save array!
 
 }
+
+//Tick Functions
 
 function tick(eve) {
     tickCounter += 1
     console.log(tickCounter)
+    let tickCSS = document.getElementById("tick") //Props need rid
     if (tickCounter % 2 === 0) {
         tickCSS.style.opacity = "100%"
         textContent.style.textDecoration = "line-through"
@@ -83,10 +121,137 @@ function tick(eve) {
     }
 }
 
+function tickOne(eve) {
+    tickCounter1 += 1
+
+    let tickCSS = document.getElementById("tick1") //Props need rid
+    let textContent = document.getElementById("textOne")
+    if (tickCounter1 % 2 === 0) {
+        tickCSS.style.opacity = "100%"
+        textContent.style.textDecoration = "line-through"
+    }
+    else {
+        tickCSS.style.opacity = "0%"
+        textContent.style.textDecoration = "none"
+    }
+}
+
+function tickTwo(eve) {
+    tickCounter2 += 1
+
+    let tickCSS = document.getElementById("tick2") //Props need rid
+    let textContent = document.getElementById("textTwo")
+    if (tickCounter2 % 2 === 0) {
+        tickCSS.style.opacity = "100%"
+        textContent.style.textDecoration = "line-through"
+    }
+    else {
+        tickCSS.style.opacity = "0%"
+        textContent.style.textDecoration = "none"
+    }
+}
+function tickThree(eve) {
+    tickCounter3 += 1
+
+    let tickCSS = document.getElementById("tick3") //Props need rid
+    let textContent = document.getElementById("textThree")
+    if (tickCounter3 % 2 === 0) {
+        tickCSS.style.opacity = "100%"
+        textContent.style.textDecoration = "line-through"
+    }
+    else {
+        tickCSS.style.opacity = "0%"
+        textContent.style.textDecoration = "none"
+    }
+}
+function tickFour(eve) {
+    tickCounter4 += 1
+
+    let tickCSS = document.getElementById("tick4") //Props need rid
+    let textContent = document.getElementById("textFour")
+    if (tickCounter4 % 2 === 0) {
+        tickCSS.style.opacity = "100%"
+        textContent.style.textDecoration = "line-through"
+    }
+    else {
+        tickCSS.style.opacity = "0%"
+        textContent.style.textDecoration = "none"
+    }
+}
+function tickFive(eve) {
+    tickCounter5 += 1
+
+    let tickCSS = document.getElementById("tick5") //Props need rid
+    let textContent = document.getElementById("textFive")
+    if (tickCounter5 % 2 === 0) {
+        tickCSS.style.opacity = "100%"
+        textContent.style.textDecoration = "line-through"
+    }
+    else {
+        tickCSS.style.opacity = "0%"
+        textContent.style.textDecoration = "none"
+    }
+}
+function tickSix(eve) {
+    tickCounter6 += 1
+
+    let tickCSS = document.getElementById("tick6") //Props need rid
+    let textContent = document.getElementById("textSix")
+    if (tickCounter6 % 2 === 0) {
+        tickCSS.style.opacity = "100%"
+        textContent.style.textDecoration = "line-through"
+    }
+    else {
+        tickCSS.style.opacity = "0%"
+        textContent.style.textDecoration = "none"
+    }
+}
+
+//Remover Funnctions 
+
 function removeFunct(eve) {
+    const item = document.getElementById("taskItem")
     console.log("Cross clicked!")
     item.style.display = "none"
 }
+
+function removeFunctOne(eve) {
+
+
+
+    const itemOne = document.getElementById("taskItem1")
+    itemOne.style.display = "none"
+}
+function removeFunctTwo(eve) {
+
+    const itemTwo = document.getElementById("taskItem2")
+    itemTwo.style.display = "none"
+}
+function removeFunctThree(eve) {
+
+    const itemThree = document.getElementById("taskItem3")
+    itemThree.style.display = "none"
+}
+function removeFunctFour(eve) {
+
+    const itemFour = document.getElementById("taskItem4")
+    itemFour.style.display = "none"
+}
+function removeFunctFive(eve) {
+
+    const itemFive = document.getElementById("taskItem5")
+    itemFive.style.display = "none"
+}
+function removeFunctSix(eve) {
+
+    const itemSix = document.getElementById("taskItem6")
+    itemSix.style.display = "none"
+}
+
+
+
+
+//Item Makers
 
 function itemMakerOne() {
     itemCounter += 1

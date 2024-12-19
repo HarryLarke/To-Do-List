@@ -117,7 +117,57 @@ form {
     align-items: center;
 }
 
-.task-item {
+.task-item__one {
+    width: 95%;
+    height: 10%;
+
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item__two {
+    width: 95%;
+    height: 10%;
+
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item__three {
+    width: 95%;
+    height: 10%;
+
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item__four {
+    width: 95%;
+    height: 10%;
+
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item__five {
+    width: 95%;
+    height: 10%;
+
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item__six {
     width: 95%;
     height: 10%;
 
