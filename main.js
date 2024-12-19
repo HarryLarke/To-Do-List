@@ -54,7 +54,18 @@ function submission(eve) {
     if (textContentCounter === 1) {
         itemMakerTwo()
     }
-
+    if (textContentCounter === 2) {
+        itemMakerThree()
+    }
+    if (textContentCounter === 3) {
+        itemMakerFour()
+    }
+    if (textContentCounter === 4) {
+        itemMakerFive()
+    }
+    if (textContentCounter === 5) {
+        itemMakerSix()
+    }
     return textThrow //Save to a database or remove this line?????? Is this function too big? 
 
 }
@@ -85,7 +96,6 @@ function itemMakerOne() {
     const text = document.getElementById("textOne")
     let textContent = textArray[textContentCounter]
     text.textContent = `${textContent}`
-
     return
 }
 
@@ -98,6 +108,53 @@ function itemMakerTwo() {
     const text = document.getElementById("textTwo")
     let textContent = textArray[textContentCounter]
     text.textContent = `${textContent}`
+    return
+}
 
+function itemMakerThree() {
+    itemCounter += 1
+    const newItem = document.getElementById("taskItem3")
+    newItem.style.display = "flex"
+    console.log(textArray[textContentCounter])
+
+    const text = document.getElementById("textThree")
+    let textContent = textArray[textContentCounter]
+    text.textContent = `${textContent}`
+    return
+}
+
+function itemMakerFour() {
+    itemCounter += 1
+    const newItem = document.getElementById("taskItem4")
+    newItem.style.display = "flex"
+    console.log(textArray[textContentCounter])
+
+    const text = document.getElementById("textFour")
+    let textContent = textArray[textContentCounter]
+    text.textContent = `${textContent}`
+    return
+}
+
+function itemMakerFive() {
+    itemCounter += 1
+    const newItem = document.getElementById("taskItem5")
+    newItem.style.display = "flex"
+    console.log(textArray[textContentCounter])
+
+    const text = document.getElementById("textFive")
+    let textContent = textArray[textContentCounter]
+    text.textContent = `${textContent}`
+    return
+}
+
+function itemMakerSix() {
+    itemCounter += 1
+    const newItem = document.getElementById("taskItem6")
+    newItem.style.display = "flex"
+    console.log(textArray[textContentCounter])
+
+    const text = document.getElementById("textSix")
+    let textContent = textArray[textContentCounter]
+    text.textContent = `${textContent}`
     return
 }
