@@ -1,8 +1,6 @@
 console.log("Active")
 
 //GETTER
-
-
 let form = document.getElementById("submit")
 let rawInput = document.getElementById("taskInput")
 
@@ -36,8 +34,6 @@ let crossBoxSix = document.getElementById("crossBox6")
 
 //COUNTERS
 let textContentCounter = -1
-let eventCounter = 0
-
 let itemCounter = 0
 let tickCounter = 1
 let tickCounter1 = 1
@@ -77,38 +73,47 @@ const crossBoxListenerSix = crossBoxSix.addEventListener("click", removeFunctSix
 
 //FUNCTIONS
 function submission(eve) {
-    //Need an if statement to check for content!!!!!
+    //Need an if statement to check for content
 
     eve.preventDefault();
     textContentCounter += 1
 
     console.log(textContentCounter)
-    const textString = rawInput.value.toString()
-    let textThrow = textString.trim()
-    textArray.push(textThrow)
-    console.log(textArray)
-    rawInput.value = ""
+    let textString = rawInput.value
+    let toString = String(textString)
+    let textThrow = toString.trim()
+
+    /*     textArray.push(textThrow)
+        console.log(textArray) */
+
 
     if (textContentCounter === 0) {
-        itemMakerOne()
+        itemMakerOne(textThrow)
+        rawInput.value = ""
     }
     if (textContentCounter === 1) {
-        itemMakerOne()
+        itemMakerTwo(textThrow)
+        rawInput.value = ""
     }
     if (textContentCounter === 2) {
-        itemMakerOne()
+        itemMakerThree(textThrow)
+        rawInput.value = ""
     }
     if (textContentCounter === 3) {
-        itemMakerOne()
+        itemMakerFour(textThrow)
+        rawInput.value = ""
     }
     if (textContentCounter === 4) {
-        itemMakerOne()
+        itemMakerFive(textThrow)
+        rawInput.value = ""
     }
     if (textContentCounter === 5) {
-        itemMakerOne()
+        itemMakerSix(textThrow)
+        rawInput.value = ""
     }
     if (textContentCounter === 6) {
         textContentCounter -= 1
+        rawInput.value = ""
         return
     }
     else {
@@ -118,7 +123,7 @@ function submission(eve) {
 
 }
 
-//Tick Functions ----- Make this dryer?
+//Tick Functions
 
 function tick(eve) {
     tickCounter += 1
@@ -221,9 +226,18 @@ function tickSix(eve) {
 }
 
 //Remover Funnctions 
+const item = document.getElementById("taskItem")
+const itemOne = document.getElementById("taskItem1")
+const itemTwo = document.getElementById("taskItem2")
+const itemThree = document.getElementById("taskItem3")
+const itemFour = document.getElementById("taskItem4")
+const itemFive = document.getElementById("taskItem5")
+const itemSix = document.getElementById("taskItem6")
 
+//Will need to untick in as part of the function
+//And clear text element
 function removeFunct(eve) {
-    const item = document.getElementById("taskItem")
+
     console.log("Cross clicked!")
     item.style.display = "none"
 }
@@ -232,21 +246,28 @@ function removeFunctOne(eve) {
 
     textArray.splice(0, 1)
     textContentCounter -= 1
-    const itemOne = document.getElementById("taskItem1")
+    const text = document.getElementById("textOne")
+    text.textContent = ``
+
     itemOne.style.display = "none"
 }
 function removeFunctTwo(eve) {
 
     textArray.splice(1, 1)
     textContentCounter -= 1
-    const itemTwo = document.getElementById("taskItem2")
+    const text = document.getElementById("textTwo")
+    text.textContent = ``
+
+
     itemTwo.style.display = "none"
 }
 function removeFunctThree(eve) {
 
     textArray.splice(2, 1)
     textContentCounter -= 1
-    const itemThree = document.getElementById("taskItem3")
+    const text = document.getElementById("textThree")
+    text.textContent = ``
+
     itemThree.style.display = "none"
 }
 function removeFunctFour(eve) {
@@ -254,23 +275,29 @@ function removeFunctFour(eve) {
     textArray.splice(3, 1)
 
     textContentCounter -= 1
-    const itemFour = document.getElementById("taskItem4")
+    const text = document.getElementById("textFour")
+    text.textContent = ``
+
     itemFour.style.display = "none"
 }
 function removeFunctFive(eve) {
 
     textArray.splice(4, 1)
+    const text = document.getElementById("textFive")
+    text.textContent = ``
 
     textContentCounter -= 1
-    const itemFive = document.getElementById("taskItem5")
+
     itemFive.style.display = "none"
 }
 function removeFunctSix(eve) {
 
     textArray.splice(4, 1)
+    const text = document.getElementById("textSix")
+    text.textContent = ``
 
     textContentCounter -= 1
-    const itemSix = document.getElementById("taskItem6")
+
     itemSix.style.display = "none"
 }
 
@@ -279,40 +306,65 @@ function removeFunctSix(eve) {
 
 //Item Makers
 
-//Going back to making the element to get more bespoke button an data selection
-function itemMakerOne() {
+function itemMakerOne(arg) {
     itemCounter += 1
-    eventCounter += 1
+    const newItem = document.getElementById("taskItem1")
+    newItem.style.display = "flex"
 
-    function maker(html) {
+    const text = document.getElementById("textOne")
 
-
-        const template = document.createElement("template")
-
-        template.innerHTML = html.trim();
-        return template.content.firstElementChild
-    }
-
-    let textContent = textArray[textContentCounter] //May need to change this counter too! 
-    const myList = maker(`div class="task-item__example" id="taskItem1">
-        <div class="box" id="tickBox1">
-            <div class="tick" id="tick1">
-                <div class="line-one__tick"></div>
-                <div class="line-two__tick"></div>
-            </div>
-        </div>
-        <p class="text" id="textOne">${textContent}</p>
-        <div class="box" id="crossBox1">
-            <div class="cross" id="cross1">
-                <div class="line-one__cross"></div>
-                <div class="line-two__cross"></div>
-            </div>
-        </div>
-    </div>`)
-
-
+    text.textContent = `${arg}`
+    return
 }
 
+function itemMakerTwo(arg) {
+    itemCounter += 1
+    const newItem = document.getElementById("taskItem2")
+    newItem.style.display = "flex"
 
 
+    const text = document.getElementById("textTwo")
+    text.textContent = `${arg}`
+    return
+}
 
+function itemMakerThree(arg) {
+    itemCounter += 1
+    const newItem = document.getElementById("taskItem3")
+    newItem.style.display = "flex"
+
+    const text = document.getElementById("textThree")
+    text.textContent = `${arg}`
+    return
+}
+
+function itemMakerFour(arg) {
+    itemCounter += 1
+    const newItem = document.getElementById("taskItem4")
+    newItem.style.display = "flex"
+
+    const text = document.getElementById("textFour")
+    text.textContent = `${arg}`
+    return
+}
+
+function itemMakerFive(arg) {
+    itemCounter += 1
+    const newItem = document.getElementById("taskItem5")
+    newItem.style.display = "flex"
+
+    const text = document.getElementById("textFive")
+    text.textContent = `${arg}`
+    return
+}
+
+function itemMakerSix(arg) {
+    itemCounter += 1
+    const newItem = document.getElementById("taskItem6")
+    newItem.style.display = "flex"
+    console.log(textArray[textContentCounter])
+
+    const text = document.getElementById("textSix")
+    text.textContent = `${arg}`
+    return
+}
