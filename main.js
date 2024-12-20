@@ -28,7 +28,12 @@ let crossBoxFour = document.getElementById("crossBox4")
 let crossBoxFive = document.getElementById("crossBox5")
 let crossBoxSix = document.getElementById("crossBox6")
 
-
+const textOne = document.getElementById("textOne")
+const textTwo = document.getElementById("textTwo")
+const textThree = document.getElementById("textThree")
+const textFour = document.getElementById("textFour")
+const textFive = document.getElementById("textFive")
+const textSix = document.getElementById("textSix")
 
 
 
@@ -68,7 +73,7 @@ const crossBoxListenerFive = crossBoxFive.addEventListener("click", removeFunctF
 const crossBoxListenerSix = crossBoxSix.addEventListener("click", removeFunctSix, false)
 
 
-
+//If statement concern wheteher there is text content in each element which will decide whether or nt they should get filled or not!
 
 
 //FUNCTIONS
@@ -87,41 +92,38 @@ function submission(eve) {
         console.log(textArray) */
 
 
-    if (textContentCounter === 0) {
+    if (textOne.textContent === '') {
         itemMakerOne(textThrow)
         rawInput.value = ""
     }
-    if (textContentCounter === 1) {
+    else if (textTwo.textContent === '') {
         itemMakerTwo(textThrow)
         rawInput.value = ""
     }
-    if (textContentCounter === 2) {
+    else if (textThree.textContent === '') {
         itemMakerThree(textThrow)
         rawInput.value = ""
     }
-    if (textContentCounter === 3) {
+    else if (textFour.textContent === '') {
         itemMakerFour(textThrow)
         rawInput.value = ""
     }
-    if (textContentCounter === 4) {
+    else if (textFive.textContent === '') {
         itemMakerFive(textThrow)
         rawInput.value = ""
     }
-    if (textContentCounter === 5) {
+    else if (textSix.textContent === '') {
         itemMakerSix(textThrow)
         rawInput.value = ""
     }
-    if (textContentCounter === 6) {
+    else {
         textContentCounter -= 1
         rawInput.value = ""
         return
     }
-    else {
+}//Save to a database or remove this line?????? Is this function too big? Will also need to save array!
 
-        return textThrow
-    }//Save to a database or remove this line?????? Is this function too big? Will also need to save array!
 
-}
 
 //Tick Functions
 
@@ -283,7 +285,7 @@ function removeFunctFour(eve) {
 function removeFunctFive(eve) {
 
     textArray.splice(4, 1)
-    const text = document.getElementById("textFive")
+
     text.textContent = ``
 
     textContentCounter -= 1
@@ -311,9 +313,8 @@ function itemMakerOne(arg) {
     const newItem = document.getElementById("taskItem1")
     newItem.style.display = "flex"
 
-    const text = document.getElementById("textOne")
 
-    text.textContent = `${arg}`
+    textOne.textContent = `${arg}`
     return
 }
 
@@ -323,8 +324,8 @@ function itemMakerTwo(arg) {
     newItem.style.display = "flex"
 
 
-    const text = document.getElementById("textTwo")
-    text.textContent = `${arg}`
+
+    textTwo.textContent = `${arg}`
     return
 }
 
@@ -333,8 +334,8 @@ function itemMakerThree(arg) {
     const newItem = document.getElementById("taskItem3")
     newItem.style.display = "flex"
 
-    const text = document.getElementById("textThree")
-    text.textContent = `${arg}`
+
+    textThree.textContent = `${arg}`
     return
 }
 
@@ -343,8 +344,8 @@ function itemMakerFour(arg) {
     const newItem = document.getElementById("taskItem4")
     newItem.style.display = "flex"
 
-    const text = document.getElementById("textFour")
-    text.textContent = `${arg}`
+
+    textFour.textContent = `${arg}`
     return
 }
 
@@ -353,8 +354,8 @@ function itemMakerFive(arg) {
     const newItem = document.getElementById("taskItem5")
     newItem.style.display = "flex"
 
-    const text = document.getElementById("textFive")
-    text.textContent = `${arg}`
+
+    textFive.textContent = `${arg}`
     return
 }
 
@@ -364,7 +365,7 @@ function itemMakerSix(arg) {
     newItem.style.display = "flex"
     console.log(textArray[textContentCounter])
 
-    const text = document.getElementById("textSix")
-    text.textContent = `${arg}`
+
+    textSix.textContent = `${arg}`
     return
 }
