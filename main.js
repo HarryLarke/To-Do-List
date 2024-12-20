@@ -1,6 +1,8 @@
 console.log("Active")
 
 //GETTER
+
+
 let form = document.getElementById("submit")
 let rawInput = document.getElementById("taskInput")
 
@@ -34,6 +36,8 @@ let crossBoxSix = document.getElementById("crossBox6")
 
 //COUNTERS
 let textContentCounter = -1
+let eventCounter = 0
+
 let itemCounter = 0
 let tickCounter = 1
 let tickCounter1 = 1
@@ -73,7 +77,7 @@ const crossBoxListenerSix = crossBoxSix.addEventListener("click", removeFunctSix
 
 //FUNCTIONS
 function submission(eve) {
-    //Need an if statement to check for content
+    //Need an if statement to check for content!!!!!
 
     eve.preventDefault();
     textContentCounter += 1
@@ -89,19 +93,19 @@ function submission(eve) {
         itemMakerOne()
     }
     if (textContentCounter === 1) {
-        itemMakerTwo()
+        itemMakerOne()
     }
     if (textContentCounter === 2) {
-        itemMakerThree()
+        itemMakerOne()
     }
     if (textContentCounter === 3) {
-        itemMakerFour()
+        itemMakerOne()
     }
     if (textContentCounter === 4) {
-        itemMakerFive()
+        itemMakerOne()
     }
     if (textContentCounter === 5) {
-        itemMakerSix()
+        itemMakerOne()
     }
     if (textContentCounter === 6) {
         textContentCounter -= 1
@@ -114,7 +118,7 @@ function submission(eve) {
 
 }
 
-//Tick Functions
+//Tick Functions ----- Make this dryer?
 
 function tick(eve) {
     tickCounter += 1
@@ -275,73 +279,40 @@ function removeFunctSix(eve) {
 
 //Item Makers
 
+//Going back to making the element to get more bespoke button an data selection
 function itemMakerOne() {
     itemCounter += 1
-    const newItem = document.getElementById("taskItem1")
-    newItem.style.display = "flex"
+    eventCounter += 1
 
-    const text = document.getElementById("textOne")
-    let textContent = textArray[textContentCounter]
-    text.textContent = `${textContent}`
-    return
+    function maker(html) {
+
+
+        const template = document.createElement("template")
+
+        template.innerHTML = html.trim();
+        return template.content.firstElementChild
+    }
+
+    let textContent = textArray[textContentCounter] //May need to change this counter too! 
+    const myList = maker(`div class="task-item__example" id="taskItem1">
+        <div class="box" id="tickBox1">
+            <div class="tick" id="tick1">
+                <div class="line-one__tick"></div>
+                <div class="line-two__tick"></div>
+            </div>
+        </div>
+        <p class="text" id="textOne">${textContent}</p>
+        <div class="box" id="crossBox1">
+            <div class="cross" id="cross1">
+                <div class="line-one__cross"></div>
+                <div class="line-two__cross"></div>
+            </div>
+        </div>
+    </div>`)
+
+
 }
 
-function itemMakerTwo() {
-    itemCounter += 1
-    const newItem = document.getElementById("taskItem2")
-    newItem.style.display = "flex"
-    console.log(textArray[textContentCounter])
 
-    const text = document.getElementById("textTwo")
-    let textContent = textArray[textContentCounter]
-    text.textContent = `${textContent}`
-    return
-}
 
-function itemMakerThree() {
-    itemCounter += 1
-    const newItem = document.getElementById("taskItem3")
-    newItem.style.display = "flex"
-    console.log(textArray[textContentCounter])
 
-    const text = document.getElementById("textThree")
-    let textContent = textArray[textContentCounter]
-    text.textContent = `${textContent}`
-    return
-}
-
-function itemMakerFour() {
-    itemCounter += 1
-    const newItem = document.getElementById("taskItem4")
-    newItem.style.display = "flex"
-    console.log(textArray[textContentCounter])
-
-    const text = document.getElementById("textFour")
-    let textContent = textArray[textContentCounter]
-    text.textContent = `${textContent}`
-    return
-}
-
-function itemMakerFive() {
-    itemCounter += 1
-    const newItem = document.getElementById("taskItem5")
-    newItem.style.display = "flex"
-    console.log(textArray[textContentCounter])
-
-    const text = document.getElementById("textFive")
-    let textContent = textArray[textContentCounter]
-    text.textContent = `${textContent}`
-    return
-}
-
-function itemMakerSix() {
-    itemCounter += 1
-    const newItem = document.getElementById("taskItem6")
-    newItem.style.display = "flex"
-    console.log(textArray[textContentCounter])
-
-    const text = document.getElementById("textSix")
-    let textContent = textArray[textContentCounter]
-    text.textContent = `${textContent}`
-    return
-}

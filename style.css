@@ -19,7 +19,6 @@ body {
 main {
     width: 50%;
     height: 70%;
-
     display: flex;
     flex-flow: column;
     justify-content: start;
